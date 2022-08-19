@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "rendersmoothing",
+  "version": "${version}",
+  "name": "RenderSmoothing",
+  "description": "",
+  "authors": ["Scorbett123"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "dev.scorbett123.rendersmoothing.RenderSmoothing"
+    ]
+  },
+  "mixins": [
+    "rendersmoothing.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "minecraft": "1.18.2"
+  }
+}
