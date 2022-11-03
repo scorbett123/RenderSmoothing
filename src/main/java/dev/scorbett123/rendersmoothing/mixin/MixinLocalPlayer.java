@@ -7,6 +7,7 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.recipebook.ClientRecipeBook;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.network.encryption.PlayerPublicKey;
 import net.minecraft.stat.StatHandler;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.MathHelper;
@@ -20,16 +21,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ClientPlayerEntity.class)
 public abstract class MixinLocalPlayer extends AbstractClientPlayerEntity {
 
-    public MixinLocalPlayer(ClientWorld world, GameProfile profile) {
-        super(world, profile);
+    public MixinLocalPlayer(ClientWorld world, GameProfile profile, PlayerPublicKey publicKey) {
+        super(world, profile, publicKey);
     }
 
-    @Inject(method="getPitch", at=@At("RETURN"), cancellable = true)
+    @Inject(method = "getPitch", at = @At("RETURN"), cancellable = true)
     public void getPitch(float tickDelta, CallbackInfoReturnable<Float> cir) {
         cir.setReturnValue(super.getPitch(tickDelta));
     }
 
-    @Inject(method="getYaw", at=@At("RETURN"), cancellable = true)
+    @Inject(method = "getYaw", at = @At("RETURN"), cancellable = true)
     public void getYaw(float tickDelta, CallbackInfoReturnable<Float> cir) {
         cir.setReturnValue(super.getYaw(tickDelta));
     }
