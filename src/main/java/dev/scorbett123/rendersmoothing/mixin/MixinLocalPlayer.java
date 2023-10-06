@@ -21,8 +21,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ClientPlayerEntity.class)
 public abstract class MixinLocalPlayer extends AbstractClientPlayerEntity {
 
-    public MixinLocalPlayer(ClientWorld world, GameProfile profile, PlayerPublicKey publicKey) {
-        super(world, profile, publicKey);
+    public MixinLocalPlayer(ClientWorld world, GameProfile profile) {
+        super(world, profile);
     }
 
     @Inject(method = "getPitch", at = @At("RETURN"), cancellable = true)
